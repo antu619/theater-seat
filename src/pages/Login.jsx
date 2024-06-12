@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 
@@ -8,6 +8,14 @@ export default function Login() {
 
     // Context
     const {logIn} = useContext(AuthContext);
+
+    // location & navigate
+    const navigate =  useNavigate();
+    const location = useLocation();
+
+    const from = location?.state?.from?.pathname || '/';
+
+    console.log(location)
 
     // Login Method
     const handleLogin = (e) => {
@@ -18,6 +26,7 @@ export default function Login() {
         console.log(email, password);
         logIn(email, password)
         .then(result => console.log(result))
+        navigate(from, {replace: true});
     }
   return (
     <div style={{boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}} className="card w-full max-w-lg mx-auto my-20 bg-base-100 rounded-none">

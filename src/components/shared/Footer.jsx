@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <div className="bg-base-200">
+    <div className="bg-base-200 mt-20">
         <footer className="footer justify-between p-10 text-base-content max-w-7xl mx-auto">
   <nav>
     <h6 className="footer-title">Services</h6> 

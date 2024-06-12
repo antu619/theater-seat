@@ -1,0 +1,56 @@
+[
+    {
+        "title": "Hamlet",
+        "imgUrl": "https://example.com/images/hamlet.jpg",
+        "time": "19:00",
+        "date": "2024-07-01",
+        "description": "Experience Shakespeare's classic tragedy Hamlet with a modern twist.",
+        "tickets": 50,
+        "price": "free"
+    },
+    {
+        "title": "The Phantom of the Opera",
+        "imgUrl": "https://example.com/images/phantom.jpg",
+        "time": "20:00",
+        "date": "2024-07-05",
+        "description": "The timeless story of the mysterious Phantom who haunts the Paris Opera House.",
+        "tickets": 50,
+        "price": 60
+    },
+    {
+        "title": "Les Misérables",
+        "imgUrl": "https://example.com/images/lesmis.jpg",
+        "time": "18:30",
+        "date": "2024-07-10",
+        "description": "Join the revolution with this breathtaking adaptation of Victor Hugo's novel.",
+        "tickets": 50,
+        "price": "free"
+    },
+    {
+        "title": "Wicked",
+        "imgUrl": "https://example.com/images/wicked.jpg",
+        "time": "19:30",
+        "date": "2024-07-15",
+        "description": "Discover the untold story of the witches of Oz in this magical musical.",
+        "tickets": 50,
+        "price": 70
+    },
+    {
+        "title": "Cats",
+        "imgUrl": "https://example.com/images/cats.jpg",
+        "time": "20:00",
+        "date": "2024-07-20",
+        "description": "Andrew Lloyd Webber's iconic musical that has captivated audiences around the world.",
+        "tickets": 50,
+        "price": "free"
+    },
+    {
+        "title": "Hamilton",
+        "imgUrl": "https://example.com/images/hamilton.jpg",
+        "time": "19:00",
+        "date": "2024-07-25",
+        "description": "The groundbreaking musical that tells the story of American founding father Alexander Hamilton.",
+        "tickets": 50,
+        "price": 100
+    }
+]

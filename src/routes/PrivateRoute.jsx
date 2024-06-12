@@ -11,6 +11,8 @@ export default function PrivateRoute({children}) {
     // redirect location
     const location = useLocation();
 
+    console.log(location)
+
     if(loading){
         return <Loading />;
     }
@@ -19,5 +21,5 @@ export default function PrivateRoute({children}) {
         return children;
     }
 
-  return <Navigate state={location?.pathname} to={'/join'} />
+  return <Navigate state={{from: location}} to={'/login'} replace />
 }
