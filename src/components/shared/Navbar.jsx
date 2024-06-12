@@ -17,8 +17,11 @@ export default function Navbar() {
     }
 
     const navLinks = <>
-        <li><a>Home</a></li>
-        <li><Link to={'/dashboard'}>Dashboard</Link></li>
+        <li><Link to={'/'}>Home</Link></li>
+        {
+            user?.email &&
+            <li><Link to={'/dashboard'}>Dashboard</Link></li>
+        }
     </>
   return (
     <div className="bg-primary">
