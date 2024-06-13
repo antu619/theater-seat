@@ -17,22 +17,20 @@ export default function EventCard({ event }) {
       <figure>
         <img src={imgUrl} alt="Thumb" />
       </figure>
-      <div className="p-5">
+      <div className="card-body w-full justify-end">
         <h2 className="card-title">{title}</h2>
 
-        <div className="flex justify-between my-4">
+        <div className="grid grid-cols-2 gap-5 my-4">
           <p className="flex items-center gap-2">
             <IoMdTime className="text-info" />
             {time}
           </p>
-          <p className="flex items-center gap-2">
+          <p className="flex items-center justify-end gap-2">
             <SlCalender className="text-info" />
             {date}
           </p>
-        </div>
-        <div className="flex justify-between">
           <p>Tickets: {tickets}</p>
-          <p className="flex items-center gap-2">Price: ${price}</p>
+          <p className="flex items-center justify-end gap-2">Price: ${price}</p>
         </div>
       </div>
       <div className="w-full card-actions">

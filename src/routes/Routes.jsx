@@ -8,6 +8,7 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import EventDetails from "../pages/EventDetails";
 import AvailableEvents from "../pages/Dashboard/AvailableEvents";
+import AllUsers from "../pages/Dashboard/AllUsers";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,11 @@ const router = createBrowserRouter([
         {
           path: '/events/:id',
           element: <PrivateRoute><EventDetails /></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/events/${params.id}`)
+          loader: ({params}) => fetch(`http://localhost:5000/events/${params.id}`, {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+          })
         },
       ]
     },
@@ -44,6 +49,10 @@ const router = createBrowserRouter([
         {
           path: '/dashboard/available-events',
           element: <AvailableEvents />
+        },
+        {
+          path: '/dashboard/all-users',
+          element: <AllUsers />
         },
       ]
     }

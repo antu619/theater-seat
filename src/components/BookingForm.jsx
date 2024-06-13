@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 export default function BookingForm({ event }) {
@@ -66,7 +66,6 @@ export default function BookingForm({ event }) {
       {/* <button className="btn" >open modal</button> */}
       <dialog id="my_modal_3" className="modal">
         <div className="modal-box">
-        <Toaster />
           <form method="dialog">
             {/* if there is a button in form, it will close the modal */}
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
@@ -102,7 +101,7 @@ export default function BookingForm({ event }) {
               />
             </div>
             {/* Event Time and Date */}
-            <div className="flex justify-between">
+            <div className="">
               <div className="">
                 <label className="label">
                   <span className="label-text">Time</span>

@@ -16,6 +16,7 @@ export default function DashboardLayout() {
       <Link to={'/'} className="text-2xl mb-4">theater<span className="font-bold text-3xl">Seat</span></Link>
       <li><Link to={'/dashboard'}>My Bookings</Link></li>
       <li><Link to={'/dashboard/available-events'}>Available Events</Link></li>
+      <li><Link to={'/dashboard/all-users'}>All Users</Link></li>
     </ul>
   
   </div>

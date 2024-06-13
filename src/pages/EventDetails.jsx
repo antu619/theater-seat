@@ -1,16 +1,31 @@
 import { IoMdTime } from "react-icons/io";
 import { SlCalender } from "react-icons/sl";
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, useNavigate } from "react-router-dom"
 import BookingForm from "../components/BookingForm";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 export default function EventDetails() {
+  // context
+  const {logOut} = useContext(AuthContext);
+  const navigate = useNavigate();
 
   // Loader Data
     const event = useLoaderData();
+
     // Event Data
   const { title, imgUrl, time, date, tickets, price, description } = event;
 
+
+
+  // Redirect when token is not found or expired
+  const token = localStorage.getItem("token");
+
+  if(!token){
+    logOut()
+    navigate('/login')
+  }
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 max-w-7xl mx-auto gap-10 my-20 p-5">

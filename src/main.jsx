@@ -12,7 +12,15 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
     <RouterProvider router={router} />
-    <Toaster />
+    <Toaster position="top-right" 
+    toastOptions={{
+      success: {
+        duration: 4000
+      },
+      error: {
+        duration: 4000
+      },
+    }} />
     </AuthProvider>
   </React.StrictMode>
 );

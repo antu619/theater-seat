@@ -46,7 +46,11 @@ export default function Navbar() {
         user?.email ?
         <button onClick={handleLogOut} className="btn w-28 uppercase">Log Out</button>
         :
-        <Link to={'/login'} className="btn w-28 uppercase">Log in</Link>
+        <div>
+          <Link to={'/login'} className="btn w-28 uppercase mr-2">Login</Link>
+          <Link to={'/join'} className="btn btn-outline border-black text-black w-28 uppercase">Join Us</Link>
+        </div>
+
     }
   </div>
     </div>
