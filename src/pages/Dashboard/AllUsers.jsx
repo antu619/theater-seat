@@ -18,8 +18,14 @@ export default function AllUsers() {
       },
     })
       .then((res) => res.json())
-      .then((data) => setUsers(data));
-  }, []);
+      .then((data) => {
+        setUsers(data)
+        if (data.status === 403) {
+          logOut();
+          navigate("/login");
+        }
+      });
+  }, [logOut, navigate]);
 
   // redirect when token is not found
   const token = localStorage.getItem("token");

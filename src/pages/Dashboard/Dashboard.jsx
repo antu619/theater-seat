@@ -18,14 +18,20 @@ export default function Dashboard() {
       },
     })
       .then((res) => res.json())
-      .then((data) => setUserBookings(data));
-  }, [user?.email]);
+      .then((data) => {
+        console.log(data.status);
+        if (data.status === 403) {
+          logOut();
+          navigate("/login");
+        }
+        setUserBookings(data);
+      });
+  }, [user?.email, logOut, navigate]);
 
   const token = localStorage.getItem("token");
-
-  if(!token){
-    logOut()
-    navigate('/login')
+  if (!token) {
+    logOut();
+    navigate("/login");
   }
 
   return (

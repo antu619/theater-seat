@@ -27,7 +27,8 @@ export default function EventCard({ event }) {
           </p>
           <p className="flex items-center justify-end gap-2">
             <SlCalender className="text-info" />
-            {date}
+            <div><p>yyyy/mm/dd</p>
+            {date}</div>
           </p>
           <p>Tickets: {tickets}</p>
           <p className="flex items-center justify-end gap-2">Price: ${price}</p>

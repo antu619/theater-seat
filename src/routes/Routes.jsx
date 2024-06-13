@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import EventDetails from "../pages/EventDetails";
 import AvailableEvents from "../pages/Dashboard/AvailableEvents";
 import AllUsers from "../pages/Dashboard/AllUsers";
+import UploadEvent from "../pages/Dashboard/UploadEvent";
 
 const router = createBrowserRouter([
     {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
         {
           path: '/dashboard/all-users',
           element: <AllUsers />
+        },
+        {
+          path: '/dashboard/upload-event',
+          element: <UploadEvent />
         },
       ]
     }

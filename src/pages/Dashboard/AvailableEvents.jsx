@@ -16,7 +16,9 @@ export default function AvailableEvents() {
     useEffect( () => {
         fetch('http://localhost:5000/events')
         .then(res => res.json())
-        .then(data => setEvents(data))
+        .then(data => {
+          setEvents(data)
+        })
     }, [])
 
     const availableEvents = events?.filter(event => event?.tickets != 0);
