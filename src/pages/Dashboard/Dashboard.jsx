@@ -42,7 +42,7 @@ export default function Dashboard() {
             <td>{userBooking?.time}</td>
             <td>{userBooking?.date}</td>
             <td>{userBooking?.bookedTickets}</td>
-            <td>Pay</td>
+            <td><button className="btn btn-sm btn-info w-20">Pay</button></td>
           </tr>)
         }
     </tbody>

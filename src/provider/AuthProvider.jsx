@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react"
 import app from "../firebase/firebase.config";
 
@@ -32,12 +32,19 @@ const logOut = () => {
     return signOut(auth);
 }
 
+// Google Login
+const providerLogin = (provider) => {
+    setLoading(true);
+    return signInWithPopup(auth, provider);
+}
+
 const authInfo = {
     createUser,
     logIn,
     user,
     loading,
-    logOut
+    logOut,
+    providerLogin
 }
 
 useEffect( () => {

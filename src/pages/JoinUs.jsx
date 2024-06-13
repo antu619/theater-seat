@@ -1,11 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { useContext } from "react";
+import toast from "react-hot-toast";
 
 
 export default function JoinUs() {
     // Context
     const {createUser} = useContext(AuthContext);
+
+    const navigate =  useNavigate();
+    const location = useLocation();
+
+    const from = location?.state?.from?.pathname || '/';
 
     // Join Method / Register 
     const handleRegister = (e) => {
@@ -16,7 +22,28 @@ export default function JoinUs() {
         const password = form.password.value;
         console.log(name, email, password);
         createUser(email, password)
-        .then(result => console.log(result))
+        .then(result => {
+          console.log(result)
+          if(result?.user?.email){
+            const userData = {
+              name: result?.user?.displayName,
+              email: result?.user?.email,
+            }
+            fetch('http://localhost:5000/users', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(userData)
+            })
+            .then(res => res.json())
+            .then(data => {
+              console.log(data)
+              toast.success('Successfully Created User And Logged In')
+              navigate(from, {replace: true});
+            })
+          }
+        })
     }
 
 
