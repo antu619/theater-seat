@@ -1,10 +1,16 @@
 import { IoMdTime } from "react-icons/io";
 import { SlCalender } from "react-icons/sl";
 import { useLoaderData } from "react-router-dom"
+import BookingForm from "../components/BookingForm";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 export default function EventDetails() {
+  // context
+  const {user} = useContext(AuthContext);
 
+  // Loader Data
     const event = useLoaderData();
     // Event Data
   const { title, imgUrl, time, date, tickets, price, description } = event;
@@ -37,18 +43,21 @@ export default function EventDetails() {
           </p>
         </div>
         <div className="flex justify-around">
-          <p>Tickets: {tickets}</p>
+          <p>Available Tickets: {tickets}</p>
           <p className="flex items-center gap-2">Price: ${price}</p>
         </div>
       </div>
       <div className="w-full card-actions">
-        <button
+          <button
+          disabled={tickets === 0}
+        onClick={()=>document.getElementById('my_modal_3').showModal()}
           className="btn btn-primary btn-outline w-full uppercase rounded-none"
         >
           Book Now
         </button>
       </div>
       </div>
+      <BookingForm user={user} event={event} />
     </div>
   )
 }

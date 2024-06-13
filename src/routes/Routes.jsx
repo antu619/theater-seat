@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         },
         {
           path: '/events/:id',
-          element: <EventDetails />,
+          element: <PrivateRoute><EventDetails /></PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/events/${params.id}`)
         },
       ]
