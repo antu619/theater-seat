@@ -6,6 +6,7 @@ import Heading from "../Heading";
 export default function Events() {
     const [events, setEvents] = useState([]);
 
+    // All Events
     useEffect( () => {
         fetch('http://localhost:5000/events')
         .then(res => res.json())
@@ -17,7 +18,7 @@ export default function Events() {
   return (
     <div className="max-w-7xl mx-auto mt-20">
         {/* Heading */}
-      <Heading heading={'Events'} />
+      <Heading heading={'New Events'} />
     {/* Events */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
         {

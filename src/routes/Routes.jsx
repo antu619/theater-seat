@@ -7,6 +7,7 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import EventDetails from "../pages/EventDetails";
+import AvailableEvents from "../pages/Dashboard/AvailableEvents";
 
 const router = createBrowserRouter([
     {
@@ -39,7 +40,11 @@ const router = createBrowserRouter([
         {
           path: '/dashboard',
           element: <Dashboard />
-        }
+        },
+        {
+          path: '/dashboard/available-events',
+          element: <AvailableEvents />
+        },
       ]
     }
   ]);
