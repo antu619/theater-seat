@@ -2,18 +2,15 @@ import { IoMdTime } from "react-icons/io";
 import { SlCalender } from "react-icons/sl";
 import { useLoaderData } from "react-router-dom"
 import BookingForm from "../components/BookingForm";
-import { useContext } from "react";
-import { AuthContext } from "../provider/AuthProvider";
 
 
 export default function EventDetails() {
-  // context
-  const {user} = useContext(AuthContext);
 
   // Loader Data
     const event = useLoaderData();
     // Event Data
   const { title, imgUrl, time, date, tickets, price, description } = event;
+
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 max-w-7xl mx-auto gap-10 my-20 p-5">
@@ -57,7 +54,10 @@ export default function EventDetails() {
         </button>
       </div>
       </div>
-      <BookingForm user={user} event={event} />
+      {
+        event &&
+        <BookingForm event={event} />
+      }
     </div>
   )
 }

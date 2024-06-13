@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
-export default function BookingForm({ user, event }) {
-  const { title, time, date, tickets } = event;
+export default function BookingForm({ event }) {
+  const { _id, title, time, date, tickets } = event;
 
-  
+  // context
+  const { user } = useContext(AuthContext);
 
   // Book tickets
-  const handleBooking = (e) => {
+  const handleBooking = async(e) => {
     e.preventDefault();
     const form = e.target;
     const bookedTickets = form.bookedTickets.value;
@@ -19,7 +22,40 @@ export default function BookingForm({ user, event }) {
       date,
       bookedTickets,
     };
-console.log(booking);
+    // booking tickets
+    if (tickets >= bookedTickets) {
+      await fetch("http://localhost:5000/bookings", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(booking),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+        //   get available tickets after booking
+          const availableTickets = parseInt(tickets) - parseInt(bookedTickets);
+
+        //   update tickets after booking
+          if(data.acknowledged){
+              fetch(`http://localhost:5000/events/${_id}`,{
+                method: 'PATCH',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({tickets: availableTickets})
+            })
+            .then(res => res.json())
+            .then(data => console.log(data))
+          }
+          toast.success("Successfully Booked.");
+          form.reset();
+          });
+          }
+          else{
+              toast.error("There are not enough tickets!");
+          }
   };
 
   return (
@@ -27,6 +63,7 @@ console.log(booking);
       {/* <button className="btn" >open modal</button> */}
       <dialog id="my_modal_3" className="modal">
         <div className="modal-box">
+        <Toaster />
           <form method="dialog">
             {/* if there is a button in form, it will close the modal */}
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
