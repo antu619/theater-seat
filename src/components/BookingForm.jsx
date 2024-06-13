@@ -1,12 +1,15 @@
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function BookingForm({ event }) {
   const { _id, title, time, date, tickets } = event;
 
   // context
   const { user } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   // Book tickets
   const handleBooking = async(e) => {
@@ -50,7 +53,7 @@ export default function BookingForm({ event }) {
             .then(data => console.log(data))
           }
           toast.success("Successfully Booked.");
-          form.reset();
+          navigate('/dashboard')
           });
           }
           else{

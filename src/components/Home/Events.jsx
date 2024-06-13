@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import EventCard from "./EventCard";
+import Heading from "../Heading";
 
 
 export default function Events() {
@@ -16,10 +17,7 @@ export default function Events() {
   return (
     <div className="max-w-7xl mx-auto mt-20">
         {/* Heading */}
-      <h2 className="text-3xl text-center mb-1">Events</h2>
-      <div className="flex justify-center ">
-      <hr className="w-28" />
-      </div>
+      <Heading heading={'Events'} />
     {/* Events */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
         {

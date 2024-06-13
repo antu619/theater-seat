@@ -14,7 +14,7 @@ export default function DashboardLayout() {
     <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
       {/* Sidebar content here */}
       <Link to={'/'} className="text-2xl mb-4">theater<span className="font-bold text-3xl">Seat</span></Link>
-      <li><a>Sidebar Item 2</a></li>
+      <li><Link to={'/dashboard'}>My Bookings</Link></li>
     </ul>
   
   </div>
