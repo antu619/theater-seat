@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 export default function BookingForm({ event }) {
-  const { _id, title, time, date, tickets } = event;
+  const { _id, title, time, date, tickets, price } = event;
 
   // context
   const { user } = useContext(AuthContext);
@@ -23,6 +23,8 @@ export default function BookingForm({ event }) {
       title,
       time,
       date,
+      price,
+      totalPrice: price * parseInt(bookedTickets),
       bookedTickets,
     };
     // booking tickets
@@ -31,6 +33,7 @@ export default function BookingForm({ event }) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify(booking),
       })
@@ -39,7 +42,8 @@ export default function BookingForm({ event }) {
             console.log(data);
         //   get available tickets after booking
           const availableTickets = parseInt(tickets) - parseInt(bookedTickets);
-
+          console.log(availableTickets)
+          console.log(data)
         //   update tickets after booking
           if(data.acknowledged){
               fetch(`http://localhost:5000/events/${_id}`,{

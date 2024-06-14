@@ -15,6 +15,11 @@ export default function AllEvent() {
           setEvents(data)
         })
     }, [])
+
+    // handle remove
+  const handleRemove = (_id) => {
+    setEvents(events.filter((post) => post._id !== _id));
+  };
   return (
     <div className="p-5 lg:p-10">
       {/* Heading */}
@@ -22,7 +27,7 @@ export default function AllEvent() {
       {/* All Events */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
         {
-            events?.map(event => <AdminEventCard key={event._id} event={event} />)
+            events?.map(event => <AdminEventCard key={event._id} event={event} handleRemove={handleRemove} />)
         }
       </div>
     </div>

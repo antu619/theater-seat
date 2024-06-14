@@ -12,6 +12,7 @@ import AllUsers from "../pages/Dashboard/AllUsers";
 import UploadEvent from "../pages/Dashboard/UploadEvent";
 import AllEvent from "../pages/Dashboard/AllEvent";
 import UpdateEvent from "../pages/Dashboard/UpdateEvent";
+import Payment from "../pages/Dashboard/Payment";
 
 const router = createBrowserRouter([
     {
@@ -73,6 +74,11 @@ const router = createBrowserRouter([
                   authorization: `Bearer ${localStorage.getItem('token')}`
                 }
               })
+        },
+        {
+          path: '/dashboard/payment/:id',
+          element: <Payment />,
+          loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`)
         },
       ]
     }
