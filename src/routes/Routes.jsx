@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         {
           path: '/events/:id',
           element: <PrivateRoute><EventDetails /></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/events/${params.id}`, {
+          loader: ({params}) => fetch(`https://theater-seat-server.vercel.app/events/${params.id}`, {
             headers: {
               authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         {
             path: '/dashboard/update-event/:id',
             element: <UpdateEvent/>,
-            loader: ({params}) => fetch(`http://localhost:5000/events/${params.id}`, {
+            loader: ({params}) => fetch(`https://theater-seat-server.vercel.app/events/${params.id}`, {
                 headers: {
                   authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -78,7 +78,7 @@ const router = createBrowserRouter([
         {
           path: '/dashboard/payment/:id',
           element: <Payment />,
-          loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`)
+          loader: ({params}) => fetch(`https://theater-seat-server.vercel.app/bookings/${params.id}`)
         },
       ]
     }

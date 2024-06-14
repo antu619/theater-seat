@@ -8,7 +8,7 @@ export default function Events() {
 
     // All Events
     useEffect( () => {
-        fetch('http://localhost:5000/events')
+        fetch('https://theater-seat-server.vercel.app/events')
         .then(res => res.json())
         .then(data => setEvents(data))
     }, [])

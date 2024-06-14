@@ -13,7 +13,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings?email=${user?.email}`, {
+    fetch(`https://theater-seat-server.vercel.app/bookings?email=${user?.email}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -39,7 +39,7 @@ export default function Dashboard() {
       totalPrice: 0,
       transactionId: 123,
     };
-    fetch("http://localhost:5000/payments", {
+    fetch("https://theater-seat-server.vercel.app/payments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -13,7 +13,7 @@ export default function CheckoutForm({ bookingdata }) {
   const { _id, totalPrice, email, name } = bookingdata;
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://theater-seat-server.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +73,7 @@ export default function CheckoutForm({ bookingdata }) {
         totalPrice,
         transactionId: paymentIntent?.id,
       };
-      fetch("http://localhost:5000/payments", {
+      fetch("https://theater-seat-server.vercel.app/payments", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

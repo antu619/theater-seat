@@ -26,7 +26,7 @@ export default function UpdateEvent() {
     );
 
     if (alert) {
-      await fetch(`http://localhost:5000/events/${data?._id}`, {
+      await fetch(`https://theater-seat-server.vercel.app/events/${data?._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

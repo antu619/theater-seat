@@ -46,7 +46,7 @@ export default function Login() {
           name: result?.user?.displayName,
           email: result?.user?.email,
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://theater-seat-server.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

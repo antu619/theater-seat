@@ -14,7 +14,7 @@ export default function AdminEventCard({event, handleRemove}) {
     const handleDelete = async() => {
         const alert = window.confirm(`Are you sure! You Want To Delete "${title}"`);
         if(alert){
-          await fetch(`http://localhost:5000/events/${_id}`, {
+          await fetch(`https://theater-seat-server.vercel.app/events/${_id}`, {
               method: "DELETE"
           })
           .then(res => res.json())

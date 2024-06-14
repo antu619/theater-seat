@@ -18,7 +18,7 @@ export default function UploadEvent() {
         console.log(postData);
     
         // Upload post api
-        await fetch('http://localhost:5000/events', {
+        await fetch('https://theater-seat-server.vercel.app/events', {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

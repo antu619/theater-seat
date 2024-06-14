@@ -12,7 +12,7 @@ export default function AllUsers() {
 
   // Get all users
   useEffect(() => {
-    fetch("http://localhost:5000/users", {
+    fetch("https://theater-seat-server.vercel.app/users", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
       },

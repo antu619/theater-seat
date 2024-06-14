@@ -29,7 +29,7 @@ export default function BookingForm({ event }) {
     };
     // booking tickets
     if (tickets >= bookedTickets) {
-      await fetch("http://localhost:5000/bookings", {
+      await fetch("https://theater-seat-server.vercel.app/bookings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,7 +46,7 @@ export default function BookingForm({ event }) {
           console.log(data)
         //   update tickets after booking
           if(data.acknowledged){
-              fetch(`http://localhost:5000/events/${_id}`,{
+              fetch(`https://theater-seat-server.vercel.app/events/${_id}`,{
                 method: 'PATCH',
                 headers: {
                     "Content-Type": "application/json"
