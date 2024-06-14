@@ -28,7 +28,7 @@ export default function EventDetails() {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 max-w-7xl mx-auto gap-10 my-20 p-5">
+    <div className="grid grid-cols-1 lg:grid-cols-3 max-w-7xl mx-auto gap-10 my-10 lg:my-20 p-5">
       <div
       className="lg:col-span-2 card card-compact bg-base-200 rounded-none"
     >

@@ -61,7 +61,7 @@ export default function JoinUs() {
         boxShadow:
           "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
       }}
-      className="card w-full max-w-lg mx-auto my-20 bg-base-100 rounded-none"
+      className="card w-96 mx-auto my-20 bg-base-100 rounded-none"
     >
       <form onSubmit={handleRegister} className="card-body">
         <p className="text-center text-xl">Welcome</p>

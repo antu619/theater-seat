@@ -25,7 +25,7 @@ export default function Navbar() {
     </>
   return (
     <div className="bg-primary">
-        <div className="navbar max-w-7xl mx-auto">
+        <div className="navbar lg:max-w-7xl lg:mx-auto justify-between">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -35,7 +35,7 @@ export default function Navbar() {
        {navLinks}
       </ul>
     </div>
-    <Link to={'/'} className="text-2xl">theater<span className="font-bold text-3xl">Seat</span></Link>
+    <Link to={'/'} className="text-xl lg:text-2xl">theater<span className="font-bold text-2xl lg:text-3xl">Seat</span></Link>
   </div>
   <div className="navbar-end hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -47,8 +47,8 @@ export default function Navbar() {
         <button onClick={handleLogOut} className="btn w-28 uppercase">Log Out</button>
         :
         <div>
-          <Link to={'/login'} className="btn w-28 uppercase mr-2">Login</Link>
-          <Link to={'/join'} className="btn btn-outline border-black text-black w-28 uppercase">Join Us</Link>
+          <Link to={'/login'} className="btn lg:w-28 uppercase mr-2">Login</Link>
+          <Link to={'/join'} className="btn btn-outline border-black text-black lg:w-28 uppercase">Join Us</Link>
         </div>
 
     }
