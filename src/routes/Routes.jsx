@@ -10,6 +10,8 @@ import EventDetails from "../pages/EventDetails";
 import AvailableEvents from "../pages/Dashboard/AvailableEvents";
 import AllUsers from "../pages/Dashboard/AllUsers";
 import UploadEvent from "../pages/Dashboard/UploadEvent";
+import AllEvent from "../pages/Dashboard/AllEvent";
+import UpdateEvent from "../pages/Dashboard/UpdateEvent";
 
 const router = createBrowserRouter([
     {
@@ -52,12 +54,25 @@ const router = createBrowserRouter([
           element: <AvailableEvents />
         },
         {
+          path: '/dashboard/all-events',
+          element: <AllEvent />
+        },
+        {
           path: '/dashboard/all-users',
           element: <AllUsers />
         },
         {
           path: '/dashboard/upload-event',
           element: <UploadEvent />
+        },
+        {
+            path: '/dashboard/update-event/:id',
+            element: <UpdateEvent/>,
+            loader: ({params}) => fetch(`http://localhost:5000/events/${params.id}`, {
+                headers: {
+                  authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+              })
         },
       ]
     }

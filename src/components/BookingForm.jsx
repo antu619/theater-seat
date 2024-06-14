@@ -101,8 +101,8 @@ export default function BookingForm({ event }) {
               />
             </div>
             {/* Event Time and Date */}
-            <div className="">
-              <div className="">
+            
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text">Time</span>
                 </label>
@@ -114,7 +114,7 @@ export default function BookingForm({ event }) {
                   disabled
                 />
               </div>
-              <div className="">
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text">Date</span>
                 </label>
@@ -126,9 +126,7 @@ export default function BookingForm({ event }) {
                   disabled
                 />
               </div>
-            </div>
-            <div className="flex justify-between">
-              <div className="">
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text">Available Tickets</span>
                 </label>
@@ -140,7 +138,7 @@ export default function BookingForm({ event }) {
                   disabled
                 />
               </div>
-              <div className="">
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text">Booking Tickets *</span>
                 </label>
@@ -152,7 +150,6 @@ export default function BookingForm({ event }) {
                   min={1}
                 />
               </div>
-            </div>
             {/* Ticket holder name */}
             <div className="form-control">
               <label className="label">

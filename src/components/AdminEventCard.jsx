@@ -1,11 +1,12 @@
-import { IoMdTime } from "react-icons/io";
-import { SlCalender } from "react-icons/sl";
-import { Link } from "react-router-dom";
 
-export default function EventCard({ event }) {
-  // Event Data
-  const { _id, title, imgUrl, time, date, tickets, price } = event;
+import { CiEdit } from 'react-icons/ci';
+import { IoMdTime } from 'react-icons/io';
+import { MdDelete } from 'react-icons/md';
+import { SlCalender } from 'react-icons/sl';
+import { Link } from 'react-router-dom';
 
+export default function AdminEventCard({event}) {
+    const { _id, title, imgUrl, time, date, tickets, price } = event;
   return (
     <div
       style={{
@@ -39,15 +40,26 @@ export default function EventCard({ event }) {
           <p>Tickets: {tickets}</p>
           <p className="flex items-center justify-end gap-2">Price: ${price}</p>
         </div>
-      </div>
-      <div className="w-full card-actions">
+      <div className="card-actions justify-end">
+        <button
+          className="btn btn-error btn-sm btn-outline uppercase rounded-none"
+        >
+          <MdDelete />
+        </button>
+        <Link
+          to={`/dashboard/update-event/${_id}`}
+          className="btn btn-info btn-sm btn-outline uppercase rounded-none"
+        >
+          <CiEdit />
+        </Link>
         <Link
           to={`/events/${_id}`}
-          className="btn btn-primary btn-outline w-full uppercase rounded-none"
+          className="btn btn-primary btn-sm btn-outline uppercase rounded-none"
         >
           Details
         </Link>
       </div>
+      </div>
     </div>
-  );
+  )
 }
